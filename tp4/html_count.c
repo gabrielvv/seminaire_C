@@ -19,9 +19,14 @@ int main(int argc, char** argv){
   return 0;
 }
 
+/*
+* Compter le nombre de caractères visibles à l'intérieur d'une balise html
+* Les espaces aux extrémités ne sont pas comptabilisés et un espace interne vaut 1 quelque soit sa largeur
+*/
+
 int html_count(char* html){
 
-    printf("html_count récupère: %s\n", html);
+    printf("html_count recupere: %s\n", html);
 
     int min, index, max, compte;
     compte = min = index = 0;
@@ -41,7 +46,6 @@ int html_count(char* html){
     do{
       minStripSpace++;
     }while(html[minStripSpace] == ' ');
-    minStripSpace++;
     printf("minStripSpace: %d => %c\n", minStripSpace, html[minStripSpace]);
 
     int maxStripSpace = max;
@@ -50,10 +54,10 @@ int html_count(char* html){
     }while(html[maxStripSpace] == ' ');
       printf("maxStripSpace: %d => %c\n", maxStripSpace, html[maxStripSpace]);
 
-    for(index = minStripSpace-1; index < maxStripSpace+1; index++){
+    for(index = minStripSpace; index < maxStripSpace+1; index++){
       printf("%c, index=%d\n",html[index], index);
       if(html[index] == '&'){
-        compte += is_html(html, &index, max);
+        compte += is_html(html, &index, maxStripSpace);
       }else if(html[index] == ' '){
         printf("espace\n");
         compte++;
@@ -84,10 +88,13 @@ void toNextChar(char* c, int* index){
 
 int is_html(char* c, int* index, int max){
 
-  int i;
+  int i, limit;
   int fakeIndex = *index;
-  printf("is_html récupère: %s\n", c);
-  for(i = fakeIndex; i < fakeIndex+10; i++){
+  printf("is_html recupere: %s\n", c);
+
+  limit = ((fakeIndex+10 - max) > 0 ? max : fakeIndex+10);
+  printf("limite de la recherche a l'index %d\n", limit);
+  for(i = fakeIndex; i <= limit; i++){
     if(c[i] == ';'){
       *index = i;
       printf("saut de %d char\n",i-fakeIndex);

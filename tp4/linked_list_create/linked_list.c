@@ -13,6 +13,7 @@ t_maillon* new_maillon(int data){
 
 unsigned int linked_list_size(t_maillon* t){
   //printf("getSize\n");
+  if(t == NULL) return 0;
   unsigned int size = 1;
   t_maillon* new_t;
   new_t = t;

@@ -14,6 +14,7 @@ t_maillon* new_maillon(int data){
 
 unsigned int linked_list_size(t_maillon* t){
   //printf("getSize\n");
+  if(t == NULL) return 0;
   unsigned int size = 1;
   t_maillon* new_t;
   new_t = t;
@@ -82,8 +83,6 @@ void linked_list_free(t_maillon** t){
   }
 
   free(*address);
-
-
 }
 
 
@@ -113,48 +112,47 @@ void linked_list_append(t_maillon** list, int data){
 
 /*Insert at any place between 0 and linked_list_size() */
 void linked_list_insert(t_maillon** list, int index, int data){
-    //printf("list_insert\n");
-    int null = 0;
-    //printf("size %u", linked_list_size(*list));
-  if(index >= 0 && index <= linked_list_size(*list)){
-    t_maillon* t = *list;
-    if(index == 0){
+  //printf("list_insert\n");
+
+  //printf("size %u", linked_list_size(*list));
+
+  t_maillon* t = *list;
+
+  if(index == 0){
+    if(t == NULL){ linked_list_append(list, data);}
+    else{
       t_maillon* t_insert = malloc(sizeof(t_maillon));
       t_insert->data = data;
       t_insert->next = t;
-      *list = t_insert;
-    }else{
-      t_maillon* t_before = *list;
-      t_maillon* t_insert = malloc(sizeof(t_maillon));
-      t_insert->data = data;
-      int i;
-      for(i = 0; i <= index; i++){
+      *list = t_insert; //le nouvel élément est tête de liste pointée par list
+    }
+  }else if(index == linked_list_size(*list)){
+    linked_list_append(list, data);
+  }else if(0 < index && index < linked_list_size(*list)){
 
-        if(t_before->next == NULL){
-          //printf("null\n");
-          null = 1;
-          break;
-        }
-        t_before = t_before->next;
-
-      }
-      //printf("insertion %p a l'index %d\n", t_insert, i+1);
-      //system("pause");
+    t_maillon* t_before = *list;
+    t_maillon* t_insert = malloc(sizeof(t_maillon));
+    t_insert->data = data;
+    int i;
+    for(i = 0; i < index-1; i++){
+      t_before = t_before->next;
+      //printf("incrémentation insert");
+    }
+    //printf("insertion %p a l'index %d\n", t_insert, i+1);
+    //system("pause");
       t_maillon* t_after = t_before->next;
       t_before->next = t_insert;
-      if(null){
-         t_insert->next = NULL;
+      t_insert->next = t_after;
 
-         (t_insert->next = t_after);
-       }
-     }
-  }
-}
+    }
+   }
+
+
 
 /* Remove the s_maillon at index position, if index is in [0, linked_list_size()] */
 void linked_list_remove_indice(t_maillon** list, unsigned int index){
   //printf("remove indice");
-  if(index >= 0 && index <= linked_list_size(*list)){
+  if(index >= 0 && index <= linked_list_size(*list) && *list != NULL){
     t_maillon* t = *list;
     t_maillon* t_before = NULL;
     t_maillon* t_after = NULL;

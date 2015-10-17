@@ -5,19 +5,20 @@
 
 t_maillon* new_maillon(int data){
   t_maillon *t;
-  t = malloc(sizeof(t_maillon));
+  t = (t_maillon*)malloc(sizeof(t_maillon));
   t->data = data;
   t->next = NULL;
+  printf("cr\212ation pointeur %p de valeur %d\n", t, t->data);
   return t;
 }
 
 unsigned int linked_list_size(t_maillon* t){
   //printf("getSize\n");
-  if(t == NULL) return 0;
+  if(!t) return 0;
   unsigned int size = 1;
   t_maillon* new_t;
   new_t = t;
-  while(new_t->next !=  NULL){
+  while(new_t->next != NULL){
     size++;
     new_t = new_t->next;
   }
@@ -52,7 +53,7 @@ int linked_list_get_by_value(t_maillon* t, int value){
   while(new_t->data != value){
     pos++;
     new_t = new_t->next;
-    if(new_t ==  NULL){
+    if(new_t == NULL){
       return (-1);
     }
   }
@@ -60,23 +61,27 @@ int linked_list_get_by_value(t_maillon* t, int value){
 }
 
 void linked_list_display(t_maillon* t){
+  //printf("display\n");
   t_maillon* new_t;
   new_t = t;
 
   do{
-    printf("%d ", new_t->data);
+    printf("affichage pointeur %p de valeur %d\n", new_t, new_t->data);
   }while((new_t = new_t->next) != NULL);
+  printf("\n");
+  return;
 }
 
 void linked_list_free(t_maillon** t){
+  printf("free\n");
   t_maillon** address = t;
-  t_maillon* new_t = *t;
+  t_maillon* new_t = *address;
+  t_maillon* t_remove;
 
-  while((new_t = new_t->next) != NULL){
-    free(*address);
-    address = &new_t;
+  while((t_remove = new_t)){
+    printf("lib\212ration dynamique %p de valeur %d et pointe sur %p\n", t_remove, t_remove->data, t_remove->next);
+    new_t = new_t->next;
+    free(t_remove);
   }
-
-  free(*address);
-
+  return;
 }

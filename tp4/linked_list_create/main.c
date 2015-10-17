@@ -15,6 +15,10 @@ int main(int argc, char** argv) {
   printf("Position valeur 19: %d \n", linked_list_get_by_value(list, 19));
 
   linked_list_display(list);
+  linked_list_display(list);
+    printf("Valeur position 2 : %d \n", linked_list_get_by_position(list, 2, &found));
+      printf("Valeur position 3 : %d \n", linked_list_get_by_position(list, 3, &found));
+      printf("Position valeur 7: %d \n", linked_list_get_by_value(list, 7));
   linked_list_free(&list);
   return 0;
 }

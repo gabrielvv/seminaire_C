@@ -25,9 +25,4 @@ int linked_list_get_by_value(t_maillon*, int);
 //libérer l'espace occupé en mémoire par la liste chaînée (tous les maillons)
 void linked_list_free(t_maillon**);
 
-
-
-
-
-
 #endif

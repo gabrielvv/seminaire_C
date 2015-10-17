@@ -1,0 +1,77 @@
+# Addition de deux entier fourni en ligne de commande
+- Le fichier contient l'inclusion du stdlib,false, 0
++ Le fichier contient le main principal valide,true, 2
++ Le fichier contient la fonction atoi,true, 2
++ Le fichier contient la fonction printf avec le pattern numérique,true, 2
+- Lire la chaine indiquant le nombre de parametres insuffisant,false,0
++ Lire la valeur 27,true,3
++ Lire la valeur 60,true,3
+# Résulat : 12
+
+# Effectuer une opération de calcul élémentaire
+- Le fichier contient l'inclusion du stdlib,false, 0
++ Le fichier contient le main principal valide,true, 2
++ Le fichier contient la fonction atoi,true, 2
++ Le fichier contient la fonction printf avec le pattern numérique entier,true, 2
+- Le fichier contient au moins une expression if avec un opérateur relationnel,false, 0
+- Le fichier contient un opérateur switch/case/break,false, 0
++ Le fichier contient un opérateur composé,true, 2
+- Lire la chaine indiquant le nombre de parametres insuffisant,false,0
+- Lire la chaine 'Division par zero impossible',false,0
++ Lire la valeur 40,true,3
++ Lire la valeur 25,true,3
++ Lire la valeur 125,true,3
++ Lire la valeur 2',true,3
++ Lire la valeur 1,true,3
+# Résulat : 23
+
+# Renvoyer la valeur maximum entre 2 entiers
+- Le fichier contient l'inclusion du stdlib,false, 0
++ Le fichier contient le main principal valide,true, 2
++ Le fichier contient la fonction atoi,true, 2
++ Le fichier contient la fonction printf avec le pattern numérique,true, 2
+- Le fichier contient au moins une expression if avec un opérateur relationnel,false, 0
+- Le fichier contient au moins une expression avec un opérateur ternaire,false, 0
+- Lire la chaine indiquant le nombre de parametres insuffisant,false,0
++ Lire la valeur 54,true,3
++ Lire la valeur 60,true,3
+- Lire la valeur 'equal',false,0
+# Résulat : 12
+
+# Trier 3 variables passées en paramètres
+- Le fichier contient l'inclusion du stdlib,false, 0
++ Le fichier la fonction printf avec le pattern entier,true, 2
++ Le fichier contient au moins une expression if avec un opérateur relationnel,true, 2
++ Le fichier contient la fonction atoi,true, 2
++ Lire la chaine indiquant le nombre de parametres insuffisant,true,2
+- Lire 1 12 13, Résultat non fourni!
+- Lire 1 12 13, Résultat non fourni!
+- Lire 1 12 13, Résultat non fourni!
+- Lire 1 12 13, Résultat non fourni!
+- Lire 1 12 13, Résultat non fourni!
+- Lire 1 12 13, Résultat non fourni!
+# Résulat : 8
+
+# Location
+- Le fichier contient l'inclusion du stdlib,false, 0
+- Le fichier contient au moins une expression if avec un opérateur relationnel,false, 0
++ Le fichier contient la fonction atoi,true, 2
++ Le fichier contient %.2f ou %.2lf ,true, 2
+- Lire la chaine indiquant le nombre de parametres insuffisant,false,0
+- Lire resultat e 274.48 d 299.36 m 274.48,false,0
++ Lire resultat e 484.38 d 476.96 m d 476.96,true,6
+# Résulat : 10
+
+# Transformation d'addresse IP
++ Le fichier contient l'inclusion du stdlib,true, 2
+- Le fichier la fonction printf avec le pattern long integer,false, 0
++ Le fichier contient l'opérateur binaire &,true, 2
++ Le fichier contient la fonction strtoul,true, 2
++ Le fichier contient des masques hexadécimaux,true, 2
++ Le fichier contient des opérateurs de décalage sur bit,true, 2
+- Lire la chaine indiquant le nombre de parametres insuffisant,false,0
++ Lire l'adresse IP 127.0.0.1,true,3
++ Lire l'adresse IP 192.0.0.1,true,3
+- Lire l'adresse IP 255.255.255.255,false,0
++ Lire l'adresse IP 255.255.0.0,true,3
+# Résulat : 19
